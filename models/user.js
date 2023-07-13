@@ -44,6 +44,5 @@ User.init(
   }
 );
 
-User.hasMany(WorkoutRoutine, { foreignKey: "user_id" });
 
 module.exports = User;

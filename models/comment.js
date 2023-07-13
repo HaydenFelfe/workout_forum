@@ -21,14 +21,14 @@ Comment.init(
         len: [3],
       },
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    workout_routine_id: {
-      type: DataTypes.INTEGER,
-      allowNUll: false,
-    },
+    // user_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    // },
+    // workout_routine_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNUll: false,
+    // },
   },
   {
     sequelize,
@@ -39,7 +39,5 @@ Comment.init(
   }
 );
 
-Comment.belongsTo(User, {foreignKey: "user_id"});
-Comment.belongsTo(WorkoutRoutine, { foreignKey: 'workout_routine_id'});
 
 module.exports = Comment;

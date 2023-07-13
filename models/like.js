@@ -14,14 +14,19 @@ Like.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    user_id: {
+    count: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 0,
     },
-    workout_routine_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+    // user_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    // },
+    // workout_routine_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    // },
   },
   {
     sequelize,
@@ -30,8 +35,5 @@ Like.init(
     modelName: "like",
   }
 );
-
-Like.belongsTo(User, {foreignKey: 'user_id'});
-Like.belongsTo(WorkoutRoutine, { foreignKey: 'workout_routine_id' });
 
 module.exports = Like;

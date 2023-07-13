@@ -2,7 +2,6 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const Like = require('./like');
 const Comment = require('./comment');
-const BodyPart = require('./bodyPart')
 
 
 
@@ -27,6 +26,11 @@ WorkoutRoutine.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    bodyPart: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: '',
+    },
   },
   {
     sequelize,
@@ -37,11 +41,6 @@ WorkoutRoutine.init(
   }
 );
 
-WorkoutRoutine.hasMany(Like, { foreignKey: "workout_routine_id"});
-WorkoutRoutine.hasMany(Comment, { foreignKey: "workout_routine_id" });
-WorkoutRoutine.belongsToMany(BodyPart, {
-through: "WorkoutRoutineBodyPart",
-foreignKey: "workout_routine_id",
-});
+
 
 module.exports = WorkoutRoutine;
