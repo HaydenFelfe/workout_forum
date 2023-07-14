@@ -2,6 +2,7 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const Like = require('./like');
 const Comment = require('./comment');
+const User = require('./user');
 
 
 
@@ -30,6 +31,14 @@ WorkoutRoutine.init(
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: '',
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: User,
+        key: 'id',
+      },
     },
   },
   {
