@@ -1,3 +1,4 @@
+
 const router = require("express").Router();
 const { Comment, WorkoutRoutine } = require("../../models");
 
@@ -41,3 +42,7 @@ router.delete("/:id", async (req, res) => {
 });
 
 module.exports = router;
+
+const router = require('express').Router();
+const Comment = require('../../models/comment');
+
