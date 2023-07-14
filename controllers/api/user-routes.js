@@ -29,7 +29,12 @@ router.post('/login', async (req, res) =>{
     }
     const passwordMatch = await bcrypt.compare(password, user.password);
     if(passwordMatch){
-      res.status(200).json({ message: 'You are now logged in!' });
+      req.session.save(() => {
+        req.session.user_id = user.id;
+        res
+          .status(200)
+          .json({ message: 'You are now logged in!' });
+      });
     } else {
       res.status(401).json({ error: 'Login failed. Please try again!' });
     }

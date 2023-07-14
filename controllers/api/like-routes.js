@@ -1,8 +1,10 @@
 const router = require("express").Router();
 const { Like, WorkoutRoutine } = require("../../models");
 
+
 router.post("/", async (req, res) => {
   try {
+    console.log(req.session);
     if (!req.session.user_id) {
       res.status(401).json({ error: "Unauthorized" });
       return;
@@ -24,6 +26,7 @@ router.post("/", async (req, res) => {
         where: { workout_routine_id: workoutRoutineId },
         by: 1,
       });
+      res.status(200).json({ message: "The post has been liked!"});
     } else {
       await Like.create({
         workout_routine_id: workoutRoutineId,
@@ -33,6 +36,7 @@ router.post("/", async (req, res) => {
       res.status(200).json({ message: "Post liked successfully!" });
     }
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });

@@ -9,9 +9,9 @@ const commentRoutes = require('./comment-routes');
 
 
 router.use('/users', userRoutes);
-router.use('./workout-routines', workoutRoutineRoutes);
-router.use('./likes', likeRoutes);
-router.use('./comments', commentRoutes);
+router.use('/workout-routines', workoutRoutineRoutes);
+router.use('/likes', likeRoutes);
+router.use('/comments', commentRoutes);
 
 
 module.exports = router;
