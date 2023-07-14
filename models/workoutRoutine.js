@@ -3,6 +3,9 @@ const sequelize = require("../config/connection");
 const Like = require('./like');
 const Comment = require('./comment');
 
+const User = require('./user');
+
+
 
 
 class WorkoutRoutine extends Model {}
@@ -31,6 +34,16 @@ WorkoutRoutine.init(
       allowNull: false,
       defaultValue: '',
     },
+
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: User,
+        key: 'id',
+      },
+    },
+
   },
   {
     sequelize,

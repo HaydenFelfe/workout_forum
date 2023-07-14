@@ -21,6 +21,7 @@ Comment.init(
         len: [3],
       },
     },
+
     // user_id: {
     //   type: DataTypes.INTEGER,
     //   allowNull: false,
@@ -29,6 +30,7 @@ Comment.init(
     //   type: DataTypes.INTEGER,
     //   allowNUll: false,
     // },
+
   },
   {
     sequelize,

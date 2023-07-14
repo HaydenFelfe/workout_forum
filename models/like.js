@@ -19,6 +19,7 @@ Like.init(
       allowNull: false,
       defaultValue: 0,
     },
+
     // user_id: {
     //   type: DataTypes.INTEGER,
     //   allowNull: false,
@@ -27,6 +28,7 @@ Like.init(
     //   type: DataTypes.INTEGER,
     //   allowNull: false,
     // },
+
   },
   {
     sequelize,
