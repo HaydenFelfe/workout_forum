@@ -1,11 +1,7 @@
 const sequelize = require("../config/connection");
 const { User, WorkoutRoutine, Comment, Like } = require("../models");
 
-
 const seedUsers = async () => { 
-
-const seedUsers = async () => {
-
   try {
     await sequelize.sync({ force: true });
     const users = [
