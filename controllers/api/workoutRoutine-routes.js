@@ -28,30 +28,30 @@ router.get('/workout/:bodyPart', async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
-  try {
-    const [updatedCount] = await WorkoutRoutine.update(
-      {
-        title: req.body.title,
-        description: req.body.description,
-      },
-      {
-        where: {
-          id: req.params.id,
-        },
-        returning: true,
-      }
-    );
-    if (updatedCount > 0) {
-      const updatedWorkoutRoutine = await WorkoutRoutine.findByPk(req.params.id);
-      // await WorkoutRoutine.findByPk(req.params.id);
-      res.status(200).json(updatedWorkoutRoutine);
-      // res.status(200).json({ message: "workout routine updated successfully! "});
-    }else {
-      res.status(404).json({ error: "workout routine not found" });
-    }
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-module.exports = router;
+// router.put("/:id", async (req, res) => {
+//   try {
+//     const [updatedCount] = await WorkoutRoutine.update(
+//       {
+//         title: req.body.title,
+//         description: req.body.description,
+//       },
+//       {
+//         where: {
+//           id: req.params.id,
+//         },
+//         returning: true,
+//       }
+//     );
+//     if (updatedCount > 0) {
+//       const updatedWorkoutRoutine = await WorkoutRoutine.findByPk(req.params.id);
+//       // await WorkoutRoutine.findByPk(req.params.id);
+//       res.status(200).json(updatedWorkoutRoutine);
+//       // res.status(200).json({ message: "workout routine updated successfully! "});
+//     }else {
+//       res.status(404).json({ error: "workout routine not found" });
+//     }
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
+// module.exports = router;

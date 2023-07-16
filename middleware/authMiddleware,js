@@ -1,0 +1,25 @@
+
+// const router = require('express').Router();
+// const WorkoutRoutine = require('../models/workoutRoutine');
+// const authMiddleware = require('../middleware/authMiddleware');
+
+// router.post('/', authMiddleware, async (req, res) => {
+
+//   const userId = req.decodedToken.userId;
+
+
+//   try {
+//     const workoutRoutineData = await WorkoutRoutine.create({
+//       title: req.body.title,
+//       description: req.body.description,
+//       bodyPart: req.body.bodyPart,
+//       userId: userId,
+//     });
+
+//     res.status(200).json(workoutRoutineData);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
+
+// module.exports = router;
