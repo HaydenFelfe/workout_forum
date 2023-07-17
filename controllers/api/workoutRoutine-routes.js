@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const WorkoutRoutine = require("../../models/workoutRoutine");
+const withAuth = require('../../utils/auth');
 
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     const workoutRoutineData = await WorkoutRoutine.create({
       title: req.body.title,
@@ -28,7 +29,7 @@ router.get('/workout/:bodyPart', async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", withAuth, async (req, res) => {
   try {
     const [updatedCount] = await WorkoutRoutine.update(
       {
@@ -54,4 +55,24 @@ router.put("/:id", async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const [affectedRows] = WorkoutRoutine.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (affectedRows > 0) {
+      res.status(200).end();
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 module.exports = router;
