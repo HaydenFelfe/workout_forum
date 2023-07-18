@@ -1,31 +1,41 @@
 const router = require('express').Router();
-const { WorkoutRoutine } = require('../models/');
+const { WorkoutRoutine, User } = require('../models/');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
-  try {
-    const WorkoutRoutineData = await WorkoutRoutine.findAll({
-      where: {
-        userId: req.session.userId,
-      },
-    });
-
-    const WorkoutRoutines = WorkoutRoutineData.map((WorkoutRoutine) => WorkoutRoutine.get({ plain: true }));
+  try { const userData = await User.findByPk(req.session.user_id, {
+    include: [{ model: WorkoutRoutine }]
+  })
+  
+  const user = userData.get({ plain: true });
 
     res.render('all-workout-admin', {
       layout: 'workout',
-      WorkoutRoutines,
+      ...user,
+      logged_in: true
     });
   } catch (err) {
-    res.redirect('login');
+    res.status(500).json(err);
   }
 });
 
-router.get('/new', withAuth, (req, res) => {
-  res.render('new-workout', {
-    layout: 'workout',
-  });
+router.get('/new', (req, res) => {
+    res.render('new-workout', {
+        layout: 'workout',
+        logged_in: true
+    })
 });
+
+// router.get('/new', withAuth, async (req, res) => {
+//   try {
+//     res.render('new-workout', {
+//     //layout: 'workout',
+//     logged_in: true
+//      }); 
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
