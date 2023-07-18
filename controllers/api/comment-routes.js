@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const { Comment, WorkoutRoutine } = require("../../models");
+const withAuth = require('../../utils/auth');
 
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     const { comment, workout_routine_id } = req.body;
     const userId = req.params.user_id;
@@ -16,7 +17,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", withAuth, async (req, res) => {
   try {
     const { id } = req.params;
     const { comment } = req.body;
@@ -30,7 +31,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const { id } = req.params;
     await Comment.destroy({ where: { id }});

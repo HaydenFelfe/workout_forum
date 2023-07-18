@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const { Like, WorkoutRoutine } = require("../../models");
+const withAuth = require('../../utils/auth');
 
-
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     console.log(req.session);
     if (!req.session.user_id) {
