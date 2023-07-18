@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { User, WorkoutRoutine, Like, Comment } = require('../models');
-const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
@@ -8,7 +7,7 @@ router.get('/', async (req, res) => {
             include: [User],
         });
 
-        const workouts = WorkoutRoutineData((workout) => workout.get({ plain: true }));
+        const workouts = WorkoutRoutineData.map((workout) => workout.get({ plain: true }));
 
         res.render('all', { workouts });
     }   catch (err) {
