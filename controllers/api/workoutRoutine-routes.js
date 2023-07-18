@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const WorkoutRoutine = require("../../models/workoutRoutine");
 
+
 router.post("/", async (req, res) => {
   try {
     const workoutRoutineData = await WorkoutRoutine.create({
@@ -15,6 +16,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+
 router.get('/workout/:bodyPart', async (req, res) => {
     try {
   const workoutRouties = await WorkoutRoutine.findAll({
@@ -28,7 +30,8 @@ router.get('/workout/:bodyPart', async (req, res) => {
   }
 });
 
-// router.put("/:id", async (req, res) => {
+
+// router.put("/:id", async (req, res) => {v
 //   try {
 //     const [updatedCount] = await WorkoutRoutine.update(
 //       {
@@ -54,4 +57,5 @@ router.get('/workout/:bodyPart', async (req, res) => {
 //     res.status(400).json(err);
 //   }
 // });
-// module.exports = router;
+module.exports = router;
+
