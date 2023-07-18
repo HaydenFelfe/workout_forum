@@ -31,7 +31,7 @@ router.get('/workout/:bodyPart', async (req, res) => {
 });
 
 
-// router.put("/:id", async (req, res) => {
+// router.put("/:id", async (req, res) => {v
 //   try {
 //     const [updatedCount] = await WorkoutRoutine.update(
 //       {
