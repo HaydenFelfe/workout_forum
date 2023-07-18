@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
 const apiRoutes = require('./api');
-const homeRoutes = require('./home-routes');
-const workoutRoutes = require('./workout-routes');
+const homeRoutes = require('./home-routes.js');
+const workoutRoutes = require('./workout-routes.js');
 
 router.use('/', homeRoutes);
 router.use('/workout', workoutRoutes);
