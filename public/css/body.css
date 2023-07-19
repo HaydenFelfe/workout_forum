@@ -1,136 +1,147 @@
 :root {
-  --black: #333;
-  --white: #eee;
-  --color-1: #00BCD4;
-  --label-z: 200;
-  --svg-z: 100;
+    --black: #333;
+    --white: #ffffff;
+    --color-1: #38302e;
+    --label-z: 200;
+    --svg-z: 100;
+  }
+ 
+  .muscle-groups {
+    position: relative;
+    background: var(--white);
+    width: 320px;
+    --white: #eee;
+    --color-1: #00BCD4;
+    --label-z: 200;
+    --svg-z: 100;
 }
-
+ 
 .muscle-groups {
-  position: relative;
-  background: var(--white);
-  width: 400px;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px 0 rgba(var(--black), 0.5);
-  overflow: hidden;
-  border-top: 0.75rem solid var(--color-1);
-}
-
-.muscle-groups h1 {
-  margin: -0.5rem -1rem 1rem;
-  padding: 0 1rem 0.75rem;
-  background: var(--color-1);
-  color: var(--white);
-  text-align: center;
-  font-size: 1.25rem;
-}
-
+    position: relative;
+    background: var(--white);
+    width: 400px;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 0 rgba(var(--black), 0.5);
+    overflow: hidden;
+    border-top: 0.75rem solid var(--color-1);
+  }
+ 
+  .muscle-groups h1 {
+    margin: -0.5rem -1rem 1rem;
+    padding: 0 1rem 0.75rem;
+    background: var(--color-1);
+    color: var(--white);
+    text-align: center;
+    font-size: 1.25rem;
+  }
 .muscle-groups h2 {
-  margin: 0 0 0.5rem;
-  font-size: 0.8rem;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-}
+    margin: 0 0 0.5rem;
+    font-size: 0.8rem;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+ 
+  .muscle-groups label + h2 {
+    margin-top: 1rem;
+  }
+ 
+  .muscle-groups label {
+    width: 50px;
+    display: block;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    font-size: 0.7rem;
+    opacity: 0.5;
+    position: relative;
+    z-index: var(--label-z);
+    border-left: 5px solid transparent;
+    padding-left: 6px;
+    margin-left: -11px;
+  }
+ 
+  .muscle-groups label:hover,
+  .muscle-groups label.hover {
+    opacity: 1;
+    border-color: rgba(var(--black), 0.75);
+  }
+ 
+  .muscle-groups input:checked + label {
+    opacity: 1;
+    font-weight: bold;
+    color: var(--color-1);
+  }
+ 
+  .muscle-groups svg {
+    position: absolute;
+    right: -1.5rem;
+    bottom: 3rem;
+    height: 350px;
+    width: 350px;
 
-.muscle-groups label + h2 {
-  margin-top: 1rem;
-}
+    z-index: var(--svg-z);
+  }
+ 
+  .muscle-groups svg g[id] path {
+    opacity: 0.2;
+    transition: opacity 0.25s ease-in-out;
+  }
+ 
+  .muscle-groups svg g g[id]:hover path {
+    cursor: pointer;
+    opacity: 0.5;
+    fill: var(--color-1) !important;
+  }
+ 
+  .muscle-groups .muscles-helper {
+    display: none;
+  }
+ 
+  .muscle-groups label[for^="#"]:hover ~ svg path {
+    opacity: 0.75;
+  }
+ 
+  .muscle-groups input:checked + label + svg path {
+    opacity: 0.8;
+    fill: var(--color-1) !important;
+  }
+ 
+  html {
+    background: #333;
+    background: linear-gradient(25deg, #111, #555);
+  }
+ 
+  body {
+    font-family:"IBM Plex Sans", sans-serif, Roboto;
+  }
+ 
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 2rem 0;
+    margin-top: -80px;
+  }
+ 
+  main .info {
+    font-size: 0.8rem;
+    display: block;
+    width: 250px;
+    padding-top: 200px;
+    color: var(--white);
+    padding-left: 2rem;
+    opacity: 0.5;
+  }
+ 
+  main .info:hover {
+    opacity: 1;
+  }
+ 
+  main .info a {
+    color: var(--white);
+  }
 
-.muscle-groups label {
-  width: 50px;
-  display: block;
-  margin-bottom: 0.5rem;
-  cursor: pointer;
-  font-size: 0.7rem;
-  opacity: 0.5;
-  position: relative;
-  z-index: var(--label-z);
-  border-left: 5px solid transparent;
-  padding-left: 6px;
-  margin-left: -11px;
-}
-
-.muscle-groups label:hover,
-.muscle-groups label.hover {
-  opacity: 1;
-  border-color: rgba(var(--black), 0.75);
-}
-
-.muscle-groups input:checked + label {
-  opacity: 1;
-  font-weight: bold;
-  color: var(--color-1);
-}
-
-.muscle-groups svg {
-  position: absolute;
-  right: -1.5rem;
-  bottom: 3rem;
-  height: 350px;
-  width: 350px;
-  z-index: var(--svg-z);
-}
-
-.muscle-groups svg g[id] path {
-  opacity: 0.2;
-  transition: opacity 0.25s ease-in-out;
-}
-
-.muscle-groups svg g g[id]:hover path {
-  cursor: pointer;
-  opacity: 0.5;
-  fill: var(--color-1) !important;
-}
-
-.muscle-groups .muscles-helper {
-  display: none;
-}
-
-.muscle-groups label[for^="#"]:hover ~ svg path {
-  opacity: 0.75;
-}
-
-.muscle-groups input:checked + label + svg path {
-  opacity: 0.8;
-  fill: var(--color-1) !important;
-}
-
-html {
-  background: #333;
-  background: linear-gradient(25deg, #111, #555);
-}
-
-body {
-  font-family:"IBM Plex Sans", sans-serif;
-}
-
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  width: 100%;
-  padding: 2rem 0;
-  margin-top: -100px;
-}
-
-main .info {
-  font-size: 0.8rem;
-  display: block;
-  width: 250px;
-  padding-top: 200px;
-  color: var(--white);
-  padding-left: 2rem;
-  opacity: 0.5;
-}
-
-main .info:hover {
-  opacity: 1;
-}
-
-main .info a {
-  color: var(--white);
-}
 
 
