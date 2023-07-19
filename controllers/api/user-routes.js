@@ -4,33 +4,40 @@ const User = require("../../models/user");
 
 router.post('/', async (req, res) => {
   try {
-    const { username, email, password} = req.body;
+    const { username, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-
     const userData = await User.create({
       username,
       email,
       password: hashedPassword,
     });
-  
-    res.status(200).json(userData);
+
+    const userResponse = {
+      id: userData.id,
+      username: userData.username,
+      email: userData.email,
+    };
+    res.status(200).json(userResponse);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).json({ message: 'Failed to sign up' });
   }
 });
 
+
 router.post('/login', async (req, res) =>{
   try{
-    const { email, password } = req.body;
-    const user = await User.findOne({ where: { email } });
+    const { username, password } = req.body;
+    const user = await User.findOne({ where: { username } });
     if (!user){
       res.status(404).json({ error: 'User not found' });
       return;
     }
+    console.log(user);
     const passwordMatch = await bcrypt.compare(password, user.password);
     if(passwordMatch){
       req.session.save(() => {
         req.session.user_id = user.id;
+        req.session.logged_in = true;
         res
           .status(200)
           .json({ message: 'You are now logged in!' });
@@ -42,6 +49,17 @@ router.post('/login', async (req, res) =>{
     res.status(500).json({ error: 'Server error' });
   }
 });
+
+router.post('/logout', (req, res) => {
+  try {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 
 router.get('/:id', async (req, res) => {
   try {

@@ -7,7 +7,7 @@ router.post("/", async (req, res) => {
     const workoutRoutineData = await WorkoutRoutine.create({
       title: req.body.title,
       description: req.body.description,
-      userId: req.body.userId,
+      user_id: req.body.userId,
       bodyPart: req.body.bodyPart,
     });
     res.status(200).json(workoutRoutineData);
