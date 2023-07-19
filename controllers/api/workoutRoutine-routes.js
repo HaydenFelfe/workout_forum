@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
       description: req.body.description,
       user_id: req.body.user_id,
       bodyPart: req.body.bodyPart,
-      //
+      // fixed userId
     });
     res.status(200).json(workoutRoutineData);
   } catch (err) {
