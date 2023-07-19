@@ -1,5 +1,15 @@
 :root {
     --black: #333;
+    --white: #ffffff;
+    --color-1: #38302e;
+    --label-z: 200;
+    --svg-z: 100;
+  }
+ 
+  .muscle-groups {
+    position: relative;
+    background: var(--white);
+    width: 320px;
     --white: #eee;
     --color-1: #00BCD4;
     --label-z: 200;
@@ -15,17 +25,16 @@
     box-shadow: 2px 2px 5px 0 rgba(var(--black), 0.5);
     overflow: hidden;
     border-top: 0.75rem solid var(--color-1);
-}
+  }
  
-.muscle-groups h1 {
+  .muscle-groups h1 {
     margin: -0.5rem -1rem 1rem;
     padding: 0 1rem 0.75rem;
     background: var(--color-1);
     color: var(--white);
     text-align: center;
     font-size: 1.25rem;
-}
- 
+
 .muscle-groups h2 {
     margin: 0 0 0.5rem;
     font-size: 0.8rem;
@@ -69,6 +78,7 @@
     bottom: 3rem;
     height: 350px;
     width: 350px;
+
     z-index: var(--svg-z);
   }
  
@@ -102,7 +112,7 @@
   }
  
   body {
-    font-family:"IBM Plex Sans", sans-serif;
+    font-family:"IBM Plex Sans", sans-serif, Roboto;
   }
  
   main {
@@ -112,7 +122,7 @@
     min-height: 100vh;
     width: 100%;
     padding: 2rem 0;
-    margin-top: -100px;
+    margin-top: -80px;
   }
  
   main .info {
