@@ -3,13 +3,13 @@ const { User, WorkoutRoutine, Like, Comment } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
-        const WorkoutRoutineData = await WorkoutRoutine.findAll({
-            include: [User],
-        });
+        // const WorkoutRoutineData = await WorkoutRoutine.findAll({
+        //     include: [User],
+        // });
 
-        const workouts = WorkoutRoutineData.map((workout) => workout.get({ plain: true }));
+        // const workouts = WorkoutRoutineData.map((workout) => workout.get({ plain: true }));
 
-        res.render('all', { workouts });
+        res.render('body');
     }   catch (err) {
         res.status(500).json(err);
     }
@@ -56,5 +56,13 @@ router.get('/signup', (req, res) => {
 
     res.render('signup');
 });
+
+router.get('/about', (req, res) => {
+    try {
+      res.render('about');
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router;

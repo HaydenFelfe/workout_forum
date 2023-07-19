@@ -16,6 +16,7 @@
     <ul class="flex-row">
       <li class="li-inline nav-item"><a href="/">Home</a></li>
       <li class="li-inline nav-item"><a href="/workout">Workout</a></li>
+        <li class="li-inline nav-item"><a href="/about">About</a></li>
       <li class="li-inline nav-item"><a href="#" id="logout-link">Logout</a></li>
     </ul>
   </nav>
@@ -30,7 +31,7 @@
      <div class="card-header">
         <h2>Post Your Workout</h2>
     </div>
-        <form id="new-post-form" class="card-body">
+        <form id="new-post-form" class="workout-form card-body">
         <label class="form-label" for="post-title">Workout</label>
         <input type="text" name="post-title" class="form-input" />
 
@@ -40,12 +41,20 @@
         <label class="form-label" for="body-part">Body Part</label>
         <select name="body-part" class="form-input">
         <option value="">Select Body Part</option>
-        <option value="legs">Legs</option>
-        <option value="arms">Arms</option>
-        <option value="chest">Chest</option>
-        <option value="back">Back</option>
-        <option value="shoulders">Shoulders</option>
-        <option value="abs">Abs</option>
+        <option value="Biceps">Biceps</option>
+        <option value="Deltoids">Deltoids</option>
+        <option value="Forearms">Forearms</option>
+        <option value="Triceps">Triceps</option>
+        <option value="Trapezius">Trapezius</option>
+        <option value="Lats">Lats</option>
+        <option value="Abs">Abs</option>
+        <option value="Obliques">Obliques</option>
+        <option value="Pectorals">Pectorals</option>
+        <option value="Adductors">Adductors</option>
+        <option value="Calves">Calves</option>
+        <option value="Hamstrings">Hamstrings</option>
+        <option value="Glutes">Glutes</option>
+        <option value="Quads">Quads</option>
         <option value="other">Other</option>
         </select>
 
@@ -54,10 +63,9 @@
   
     </div>
 
-
-  <footer class="footer flex-row justify-center">
-    <a class="display-form" href="/workout/new">➕ New Workout</a>
-  </footer>
+    <footer class="flex-row justify-center">
+    &copy; © Copyright 2023 The Workout Forum Team
+    </footer>
 </body>
 <script src="/js/new.js"></script>
 <script src="/js/logout.js"></script>
