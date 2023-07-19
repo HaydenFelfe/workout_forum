@@ -50,6 +50,17 @@ router.post('/login', async (req, res) =>{
   }
 });
 
+router.post('/logout', (req, res) => {
+  try {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
