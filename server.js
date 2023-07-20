@@ -46,52 +46,52 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'shawnpark2397@gmail.com',
-    pass: 'mblvlrbzehqvzelk',
-  },
-  debug: true,
-});
+// const transporter = nodemailer.createTransport({
+//   service: 'gmail',
+//   auth: {
+//     user: 'shawnpark2397@gmail.com',
+//     pass: 'mblvlrbzehqvzelk',
+//   },
+//   debug: true,
+// });
 
 
 // Function to send a welcome email
-const sendWelcomeEmail = async (email) => {
-  try {
-    const mailOptions = {
-      from: 'shawnpark2397@gmail.com',
-      to: email,
-      subject: 'Welcome to The Workout Forum!',
-      text: 'Welcome to our website! We are glad to have you as a member, and very excited about your new workout journey with us',
-    };
+// const sendWelcomeEmail = async (email) => {
+//   try {
+//     const mailOptions = {
+//       from: 'shawnpark2397@gmail.com',
+//       to: email,
+//       subject: 'Welcome to The Workout Forum!',
+//       text: 'Welcome to our website! We are glad to have you as a member, and very excited about your new workout journey with us',
+//     };
 
 
-    await transporter.sendMail(mailOptions);
-    console.log('Welcome email sent successfully.');
-  } catch (error) {
-    console.error('Error sending welcome email:', error);
-  }
-};
+//     await transporter.sendMail(mailOptions);
+//     console.log('Welcome email sent successfully.');
+//   } catch (error) {
+//     console.error('Error sending welcome email:', error);
+//   }
+// };
 
 
 // POST route for creating a new user
-app.post('/api/users', async (req, res) => {
-  try {
-    // Code to create the user in the database (your existing code)
+// app.post('/api/users', async (req, res) => {
+//   try {
+//     // Code to create the user in the database (your existing code)
 
 
-    // After successfully creating the user, trigger the welcome email
-    await sendWelcomeEmail(req.body.email);
+//     // After successfully creating the user, trigger the welcome email
+//     await sendWelcomeEmail(req.body.email);
 
 
-    // Respond with a success message or user data (your existing code)
-    res.status(200).json({ message: 'User created successfully' });
-  } catch (error) {
-    // Handle any errors (your existing code)
-    res.status(500).json({ error: 'Failed to create user' });
-  }
-});
+//     // Respond with a success message or user data (your existing code)
+//     res.status(200).json({ message: 'User created successfully' });
+//   } catch (error) {
+//     // Handle any errors (your existing code)
+//     res.status(500).json({ error: 'Failed to create user' });
+//   }
+// });
 
 
 
