@@ -31,7 +31,7 @@ router.get('/workout/:bodyPart', async (req, res) => {
     });
     const jsonData = workoutRoutines.map(item => item.toJSON());
     console.log(jsonData);
-    res.render('bodypart', {jsonData, bodyPart: req.params.bodyPart});
+    res.render('bodypart', {layout: "workout", jsonData, bodyPart: req.params.bodyPart});
   } catch (err){
     res.status(400).json(err);
   }
@@ -69,3 +69,4 @@ router.get('/workout/:bodyPart', async (req, res) => {
 //   }
 // });
 module.exports = router;
+
