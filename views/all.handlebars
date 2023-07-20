@@ -1,16 +1,16 @@
 <div class="posts">
-  {{#each WorkoutRoutines}}
+  {{#each workoutRoutines}}
   <article class="card">
     <div class="card-header flex-row justify-space-between">
       <h2>
-        <a href="/workout/{{id}}">{{title}}</a>
+        <a href="/api/workout-routines/{{bodypart}}">{{title}}</a>
       </h2>
       <div>
-        Posted by {{User.username}} on {{format_date createdAt}}
+        Posted on {{format_date createdAt}}
       </div>
     </div>
     <div class="card-body">
-      {{body}}
+      {{description}}
     </div>
   </article>
   {{/each}}

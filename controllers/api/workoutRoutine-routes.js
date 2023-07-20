@@ -1,15 +1,16 @@
 const router = require("express").Router();
-const WorkoutRoutine = require("../../models/workoutRoutine");
+// const WorkoutRoutine = require("../../models/workoutRoutine");
+const { WorkoutRoutine, User} = require('../../models')
+const withAuth = require('../../utils/auth');
 
 
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     const workoutRoutineData = await WorkoutRoutine.create({
       title: req.body.title,
       description: req.body.description,
-      user_id: req.body.user_id,
+      user_id: req.session.user_id,
       bodyPart: req.body.bodyPart,
-      
     });
     res.status(200).json(workoutRoutineData);
   } catch (err) {
@@ -18,18 +19,27 @@ router.post("/", async (req, res) => {
 });
 
 
+
+
 router.get('/workout/:bodyPart', async (req, res) => {
     try {
-  const workoutRouties = await WorkoutRoutine.findAll({
+  const workoutRoutines = await WorkoutRoutine.findAll({
         where: {
             bodyPart: req.params.bodyPart
-        }
+        },
+        include: [{ model: User}]
     });
-    res.status(200).json(workoutRouties);
+    const jsonData = workoutRoutines.map(item => item.toJSON());
+    console.log(jsonData);
+    res.render('bodypart', {jsonData, bodyPart: req.params.bodyPart});
   } catch (err){
     res.status(400).json(err);
   }
 });
+
+
+
+
 
 
 // router.put("/:id", async (req, res) => {v
@@ -59,4 +69,3 @@ router.get('/workout/:bodyPart', async (req, res) => {
 //   }
 // });
 module.exports = router;
-

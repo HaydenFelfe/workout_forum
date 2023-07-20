@@ -5,7 +5,7 @@ const commentFormHandler = async function(event) {
     const description = document.querySelector('textarea[name="comment-body"]').value;
   
     if (description) {
-      await fetch('/api/comment', {
+      await fetch('/api/comments', {
         method: 'POST',
         body: JSON.stringify({
           workoutId,

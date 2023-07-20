@@ -9,7 +9,7 @@ router.get('/', withAuth, async (req, res) => {
   
   const user = userData.get({ plain: true });
 
-    res.render('all-workout-admin', {
+    res.render('all', {
       layout: 'workout',
       ...user,
       logged_in: true
@@ -57,3 +57,5 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 });
 
 module.exports = router;
+
+
