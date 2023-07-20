@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const bcrypt = require('bcryptjs');
 const User = require("../../models/user");
-const sendWelcomeEmail = require('../../utils/email.js')
+// const sendWelcomeEmail = require('../../utils/email.js')
 
 
 router.post('/', async (req, res) => {
@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
 
 
     // Send welcome email after successfully creating the user
-    await sendWelcomeEmail(email);
+    // await sendWelcomeEmail(email);
 
 
     const userResponse = {
