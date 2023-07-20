@@ -25,6 +25,11 @@
     box-shadow: 2px 2px 5px 0 rgba(var(--black), 0.5);
     overflow: hidden;
     border-top: 0.75rem solid var(--color-1);
+    border: 3px solid black;
+    border-radius: var(--border-radius);
+    box-shadow: 6px 5px var(--light-dark);
+
+
   }
  
   .muscle-groups h1 {
@@ -34,6 +39,7 @@
     color: var(--white);
     text-align: center;
     font-size: 1.25rem;
+    border-bottom: 3px solid black;
   }
 .muscle-groups h2 {
     margin: 0 0 0.5rem;
