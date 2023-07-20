@@ -107,9 +107,9 @@ input {
   font-size: 1.3rem;
   text-decoration: none;
   padding: 6px 5px;
-  width: 100%;
+  width: 45%;
   display: block;
-  margin: 5px 0;
+  margin: 20px auto;
   border-radius: var(--border-radius);
   color: var(--primary);
   border: none;
@@ -117,6 +117,7 @@ input {
   background-color: var(--light-dark);
   box-shadow: 3px 3px var(--dark);
   transform: translate(-1px, -1px);
+  
 }
 
 
@@ -217,9 +218,15 @@ input {
 .card {
   width: 500px;
   height: 300px;
-  margin: 0 auto;
+  margin: 15px auto;
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
+  background-color: var(--primary);
+
+border-radius: var(--border-radius);
+box-shadow: 6px 5px var(--light-dark);
+
+
 }
 
 
@@ -274,11 +281,11 @@ input {
 
 
 /* FORM */
-.form-label,
+/* .form-label,
 .form-input,
 .form-textarea {
   display: block;
-}
+} */
 
 
 .form-label {
@@ -291,10 +298,11 @@ input {
 .form-input {
   width: 100%;
   padding: 1%;
-  margin: 5px 0;
+  margin: 12px 0;
   font-size: 1.2rem;
-  border: 2px solid var(--light-dark);
+  border: 3px solid black;
   border-radius: var(--border-radius);
+
 }
 
 
@@ -862,14 +870,14 @@ box-shadow: 6px 5px var(--light-dark);
   height: 500px;
 }
 
-
+/* 
 #username-input-login {
   text-align: center;
-}
+} */
 
 
 #password-input-login {
-  text-align: center;
+
 }
 
 
