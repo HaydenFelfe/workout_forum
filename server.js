@@ -6,6 +6,10 @@ const session = require('express-session');
 const helpers = require('./utils/helpers');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const routes = require('./controllers');
+const nodemailer = require('nodemailer');
+
+
+
 
 const app = express();
 const PORT = process.env.PORT || 3005;
@@ -30,6 +34,9 @@ const sess = {
   }),
 };
 
+
+
+
 app.use(session(sess));
 const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
@@ -37,9 +44,75 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+// const transporter = nodemailer.createTransport({
+//   service: 'gmail',
+//   auth: {
+//     user: 'shawnpark2397@gmail.com',
+//     pass: 'mblvlrbzehqvzelk',
+//   },
+//   debug: true,
+// });
+
+
+// Function to send a welcome email
+// const sendWelcomeEmail = async (email) => {
+//   try {
+//     const mailOptions = {
+//       from: 'shawnpark2397@gmail.com',
+//       to: email,
+//       subject: 'Welcome to The Workout Forum!',
+//       text: 'Welcome to our website! We are glad to have you as a member, and very excited about your new workout journey with us',
+//     };
+
+
+//     await transporter.sendMail(mailOptions);
+//     console.log('Welcome email sent successfully.');
+//   } catch (error) {
+//     console.error('Error sending welcome email:', error);
+//   }
+// };
+
+
+// POST route for creating a new user
+// app.post('/api/users', async (req, res) => {
+//   try {
+//     // Code to create the user in the database (your existing code)
+
+
+//     // After successfully creating the user, trigger the welcome email
+//     await sendWelcomeEmail(req.body.email);
+
+
+//     // Respond with a success message or user data (your existing code)
+//     res.status(200).json({ message: 'User created successfully' });
+//   } catch (error) {
+//     // Handle any errors (your existing code)
+//     res.status(500).json({ error: 'Failed to create user' });
+//   }
+// });
+
+
+
+
+app.get('/api/user-id', (req, res) => {
+  if (req.session.user_id) {
+    res.json({ user_id: req.session.user_id });
+  } else {
+    res.status(404).json({ message: 'User ID not found' });
+  }
+});
+
+
+
+
+
+
+
+
 app.use(routes);
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
   });
-  
-  
+ 

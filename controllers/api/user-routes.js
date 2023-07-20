@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const bcrypt = require('bcrypt');
 const User = require("../../models/user");
+const sendWelcomeEmail = require('../../utils/email.js')
+
 
 router.post('/', async (req, res) => {
   try {
@@ -11,6 +13,11 @@ router.post('/', async (req, res) => {
       email,
       password: hashedPassword,
     });
+
+
+    // Send welcome email after successfully creating the user
+    await sendWelcomeEmail(email);
+
 
     const userResponse = {
       id: userData.id,
@@ -80,7 +87,7 @@ router.get('/:id', async (req, res) => {
     res.status(200).json(userData);
   } catch (err) {
     res.status(400).json(err);
-  }
+  } 
 });
 
 // router.put('/:id', async (req, res) => {
