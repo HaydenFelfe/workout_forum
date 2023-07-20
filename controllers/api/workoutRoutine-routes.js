@@ -69,3 +69,4 @@ router.get('/workout/:bodyPart', async (req, res) => {
 //   }
 // });
 module.exports = router;
+
