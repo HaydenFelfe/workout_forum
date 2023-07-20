@@ -29,7 +29,8 @@ Environment Variables: Create a .env file in the root directory and provide nece
 5. **Run the App:** Launch the app by running the following command:
 ```
 npm start
-Access the App: Open your web browser and go to http://localhost:3000 to start using the Workout App.
+Access the App: Open your web browser and go to http://localhost:3005 to start using the Workout App.
+or visit our link on Heroku: https://secret-headland-44009-a7fef38932b2.herokuapp.com/
 ```
 ## Usage
 1. **User Registration**: Users need to sign up for an account or log in if they already have one.
