@@ -14,3 +14,10 @@ process.env.DB_PASSWORD,
 );
 
 module.exports = sequelize;
+
+
+
+
+
+
+

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,14 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
+
 <body class="flex-column min-100-vh">
   <nav class="navbar">
     <ul class="flex-row">
       <li class="li-inline nav-item"><a href="/">Home</a></li>
-      <li class="li-inline nav-item"><a href="/workout">Workout</a></li>
-        <li class="li-inline nav-item"><a href="/about">About</a></li>
+      <li class="li-inline nav-item"><a href="/workout">Workouts</a></li>
+      <li class="li-inline nav-item"><a href="/new">Post a Workout</a></li>
+      <li class="li-inline nav-item"><a href="/about">About</a></li>
       <li class="li-inline nav-item"><a href="#" id="logout-link">Logout</a></li>
     </ul>
   </nav>
@@ -24,19 +27,22 @@
     <h1 class="app-title"><a href="/workout">Your Workout</a></h1>
   </header>
 
+
   <main class="col-auto">
     {{{body}}}
   </main>
-    <div class="post card">
-     <div class="card-header">
+    {{!-- <div class="post card">
+        <div class="card-header">
         <h2>Post Your Workout</h2>
-    </div>
+        </div>
         <form id="new-post-form" class="workout-form card-body">
         <label class="form-label" for="post-title">Workout</label>
         <input type="text" name="post-title" class="form-input" />
 
+
         <label class="form-label" for="post-body">Description</label>
         <textarea name="post-body" class="form-input"></textarea>
+
 
         <label class="form-label" for="body-part">Body Part</label>
         <select name="body-part" class="form-input">
@@ -58,16 +64,25 @@
         <option value="other">Other</option>
         </select>
 
+
         <button type="submit" class="btn">Create</button>
         </form>
-  
-    </div>
+ 
+    </div> --}}
 
-    <footer class="flex-row justify-center">
-    &copy; © Copyright 2023 The Workout Forum Team
-    </footer>
+
+    {{!-- <footer class="flex-row justify-center">
+        &copy; Copyright 2023 The Workout Forum Team
+    </footer> --}}
+
+
+  <footer class="flex-row justify-center">
+    &copy; Copyright 2023 The Workout Forum Team
+  </footer>
 </body>
 <script src="/js/new.js"></script>
+<script src="/js/get-workout.js"></script>
 <script src="/js/logout.js"></script>
+
 
 </html>

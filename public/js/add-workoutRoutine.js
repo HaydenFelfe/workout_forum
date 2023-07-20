@@ -2,20 +2,20 @@
 
 document.querySelector(".add-workoutRoutine-form").addEventListener("submit", async function (event) {
     event.preventDefault();
-
-    const title = document.querySelector("#title").value;
-    const description = document.querySelector("#description").value;
-    const bodyPart = document.querySelector("#bodyPart").value;
-    const userId = document.querySelector("#userId").value;
+console.log('made it here---------------------');
+    const title = document.querySelector('input[name="post-title"]').value;
+    const description = document.querySelector('textarea[name="post-body"]').value;
+    const bodyPart = document.querySelector('select[name="body-part"]').value;
+    const user_id = sessionStorage.getItem('user_id');
 
     try {
-      const response = await fetch("/api/workoutRoutine", {
+      const response = await fetch("/api/workout-routines", {
         method: "POST",
         body: JSON.stringify({
           title,
           description,
           bodyPart,
-          userId,
+          user_id,
         }),
         headers: {
           "Content-Type": "application/json",

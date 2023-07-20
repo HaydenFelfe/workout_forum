@@ -1,0 +1,8 @@
+<h1 class="main-heading">Workout Routines for {{bodyPart}}</h1>
+{{#each jsonData}}
+  <div class="workout-routine">
+    <h2>Workout Name: {{title}}</h2>
+    <p>Description: {{description}}</p>
+    <h3>Posted by: {{user.username}}</h3>
+  </div>
+{{/each}}
