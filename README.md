@@ -7,9 +7,14 @@ The Workout Forum is a powerful and user-friendly fitness fitness application de
   - [Description](#description)
   - [Installation](#installation)
   - [Usage](#usage)
+  - [Home Page](#home-page)
+  - [Register](#register)
+  - [Login](#login)
+  - [Create a Workout](#create-a-workout)
+  - [Workout Plans](#workout-plans)
   - [Contributing](#contributing)
   - [License](#license)
-  - [Roadmap](#roadmap)
+  - [Links](#links)
   
 ## Installation
 1. **Requirements:** Make sure you have Node.js and npm installed.
@@ -39,7 +44,16 @@ or visit our link on Heroku: https://secret-headland-44009-a7fef38932b2.herokuap
 4. **View Progress Analytics:** Users can access their progress analytics to track their improvements over time.
 5. **Explore Community:** Users can explore the community section to share their achievements, seek advice, and interact with other fitness enthusiasts.
 
-![If you can see this, we need an image...](assets/images/screenshot.png)
+## Home Page
+![Home Page](public/image/WF%20Homepage.jpg)
+## Register
+![Register](public/image/WF%20Register.jpg)
+## Login
+![Login](public/image/WF%20Login.jpg)
+## Create a Workout
+![Create a Workout](public/image/WF%20Create%20Workout.jpg)
+## Workout Plans
+![Workout Plans](public/image/WF%20Workout%20Plans.jpg)
 
 ## Contributing
 We welcome contributions from the community! If you find any bugs, have feature requests, or want to contribute code, please contact one of our collaborators!
@@ -52,7 +66,5 @@ Key collaborators:
 ## License
 [![License:undefined](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/mit)
 
-## Roadmap 
-- Create workout routines that can be viewed online by other people.
-- Save, comment and like other routines to have it save within your workout plan.
-- View dynamic warm up exercises before you begin your workout day. A minimum of 5-8 minutes of warm ups is highly recommended without fatiguing yourself before the actual workout begins!
+## Links
+[Application Link - Open in a new tab](https://secret-headland-44009-a7fef38932b2.herokuapp.com/)
